@@ -158,6 +158,21 @@ public class Calculadora extends JFrame implements ActionListener {
 		actualizar();
 		
 	}
+	private void anotarEnPantalla(String a) {
+		
+		if(dNumero) { gEcuacion = gEcuacion + gValorEnPantalla + a;
+		
+		Limpiar();
+		actualizar();
+		
+		}
+	}
+	private void Borrar() {
+		
+		gEcuacion = "";
+		Limpiar();
+		
+	}
 	
 	private void crearGUI() {
 		
@@ -228,18 +243,18 @@ public class Calculadora extends JFrame implements ActionListener {
 			
 		}
 		
-		if(x == bSuma)           { }
-		if(x == bResta)          { }
-		if(x == bMultiplicacion) { }
-		if(x == bDivision)       { }
+		if(x == bSuma)           { anotarEnPantalla(" + "); }
+		if(x == bResta)          { anotarEnPantalla(" - "); }
+		if(x == bMultiplicacion) { anotarEnPantalla(" * "); }
+		if(x == bDivision)       { anotarEnPantalla(" / "); }
 		
 		if(x == bSeno)             { valorObtenido(1); }
 		if(x == bCoseno)           { valorObtenido(2); }
 		if(x == bLogaritmoNatural) { valorObtenido(3); }
 		if(x == bRaizCuadrada)     { valorObtenido(4); }
 		
-		if(x == bResultado) { }
-		if(x == bBorrar)    { Limpiar(); }
+		if(x == bResultado) { anotarEnPantalla(" = "); }
+		if(x == bBorrar)    { Borrar(); }
 		
 	}
 	
